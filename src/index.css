@@ -11,10 +11,31 @@
   --color-base-200: #F3F4F6;
   --color-base-300: #E5E7EB;
 }
-body{
+
+body {
   background-color: #F9FAFB;
 }
 
-.menu a.active{
+.menu a.active {
   color: #10B981;
+}
+
+.dropdownBox {
+  background-color: #1F2937;
+  flex-direction: column;
+  gap: 20px 0;
+  color: white;
+}
+
+.dropdownBox p {
+  border: 2px solid #4F46E5;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.dropdownBox p:hover {
+  background-color: white;
+  color: #10B981;
+  transition: .5s;
+  border-radius: 8px;
 }

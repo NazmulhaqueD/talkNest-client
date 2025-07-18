@@ -1,26 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/provider/AuthProvider';
-import { toast } from 'react-toastify';
 import { NavLink } from 'react-router';
+import Logout from '../logout/Logout';
 
 const Navbar = () => {
     const [isDropdown, setIsDropdown] = useState(false);
-    const { user, logOut } = useContext(AuthContext);
-
-    const handleLogout = () => {
-        logOut()
-            .then(() => {
-                toast('logout successfully');
-            })
-            .catch(error => {
-                toast.error(error.message)
-            })
-    }
+    const { user} = useContext(AuthContext);
 
     const links = <>
         <NavLink className='text-base-100 hover:text-primary' to='/'>home</NavLink>
         <NavLink className='text-base-100 hover:text-primary' to='/'>Membership</NavLink>
-        <NavLink className='text-base-100 hover:text-primary title-main' to='/'>Notification </NavLink>
+        <NavLink className='text-base-100 hover:text-primary' to='/'>Notification </NavLink>
 
     </>
 
@@ -53,21 +43,13 @@ const Navbar = () => {
                                     <div className="tooltip tooltip-bottom w-full flex flex-col items-center" data-tip={`${user?.displayName}`}>
                                         <img onClick={() => setIsDropdown(!isDropdown)} src={user.photoURL} className='w-12 h-12 rounded-full cursor-pointer' alt="" />
                                     </div>
-                                    <div className={`flex flex-col z-20 bg-base-300 p-4 rounded-xl gap-y-2 transition-all duration-300 absolute activeLink linkByImage w-32 -right-18 
+                                    <div className={`dropdownBox w-46 flex flex-col z-20 bg-base-300 p-4 mt-0 rounded-b-sm gap-y-2 transition-all duration-300 absolute activeLink linkByImage -right-18 
                                     ${isDropdown ? 'top-14' : '-top-56'}`}>
-                                        <NavLink onClick={() => setIsDropdown(false)} to='/createEvent'>Create Event</NavLink>
-                                        <NavLink onClick={() => setIsDropdown(false)} to='/joinedEvents'>Joined Events</NavLink>
-                                        <NavLink onClick={() => setIsDropdown(false)} to='/manageEvents'>Manage Events</NavLink>
+                                        <p>{user?.displayName}</p>
+                                        <p><NavLink onClick={() => setIsDropdown(false)} to='/joinedEvents'>Dashboard</NavLink></p>
+                                        <p><NavLink onClick={() => setIsDropdown(false)}><Logout></Logout></NavLink></p>
                                     </div>
                                 </span> :
-                                ''
-                        }
-                    </div>
-                    <div>
-                        {
-                            user?.email ?
-                                <NavLink onClick={handleLogout} className='btn btn-sm btn-primary'>LogOut</NavLink>
-                                :
                                 <NavLink to={'/login'} className='btn btn-sm btn-primary text-sm'>Join Us</NavLink>
                         }
                     </div>

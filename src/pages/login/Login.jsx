@@ -43,8 +43,8 @@ const Login = () => {
                     <label className="label">Password</label>
                     <input type="password" name='password' className="input" required placeholder="Password" />
                     <div><a className="link link-hover">Forgot password?</a></div>
-                    <button type='submit' className="btn btn-neutral w-full mt-4">Login</button>
-                    <p>Don't have an account? <NavLink to={'/register'} className={'text-teal-400 underline font-semibold '}>Register</NavLink></p>
+                    <button type='submit' className="btn btn-primary w-full mt-4">Login</button>
+                    <p>Don't have an account? <NavLink to={'/register'} className={'text-accent underline font-semibold '}>Register</NavLink></p>
                 </form>
             </div>
         </div>
