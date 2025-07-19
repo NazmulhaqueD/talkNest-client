@@ -9,8 +9,8 @@ const Navbar = () => {
 
     const links = <>
         <NavLink className='text-base-100 hover:text-primary' to='/'>home</NavLink>
-        <NavLink className='text-base-100 hover:text-primary' to='/'>Membership</NavLink>
-        <NavLink className='text-base-100 hover:text-primary' to='/'>Notification </NavLink>
+        <NavLink className='text-base-100 hover:text-primary' to='/membership'>Membership</NavLink>
+        <NavLink className='text-base-100 hover:text-primary' to='/notifications'>Notification </NavLink>
 
     </>
 
@@ -28,7 +28,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <h2 className="text-2xl font-bold text-primary">TalkNest</h2>
+                    <a href="/"><h2 className="text-2xl font-bold text-primary">TalkNest</h2></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-x-4 font-semibold activeLink">
