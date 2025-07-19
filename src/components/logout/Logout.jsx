@@ -18,9 +18,7 @@ const Logout = () => {
         }
 
     return (
-        <div>
-            <NavLink onClick={handleLogout} className=''>LogOut</NavLink>
-        </div>
+        <button onClick={handleLogout} className=''>LogOut</button>
     );
 };
 

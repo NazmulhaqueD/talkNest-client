@@ -5,12 +5,13 @@ import { AuthContext } from '../../context/provider/AuthProvider';
 import LoginByGoogle from '../../components/loginByGoogle/LoginByGoogle';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import UseAxiosSecure from '../../hooks/UseAxiosSecure';
 
 const Register = () => {
 
     const { signUp, profileUpdate } = useContext(AuthContext);
-
     const { register, handleSubmit } = useForm();
+    const axiosSecure = UseAxiosSecure();
 
     const onSubmit = data => {
         const { name, email, photo, password } = data;
@@ -19,12 +20,17 @@ const Register = () => {
                 if (result?.user) {
                     profileUpdate(name, photo)
                         .then(() => {
-                            Swal.fire({
-                                icon: "success",
-                                title: 'Your Registration is successfully',
-                                showConfirmButton: false,
-                                timer: 2000
-                            });
+                            const user = result?.user;
+                            axiosSecure.post('/users', user)
+                                .then(res => {
+                                    console.log(res.data);
+                                    Swal.fire({
+                                        icon: "success",
+                                        title: 'Your Registration is successfully',
+                                        showConfirmButton: false,
+                                        timer: 2000
+                                    });
+                                })
                         })
                         .catch(error => {
                             toast.error(`${error.message}`)
