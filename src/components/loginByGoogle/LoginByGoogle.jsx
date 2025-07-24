@@ -3,24 +3,40 @@ import { useLocation, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/provider/AuthProvider';
+import UseAxiosSecure from '../../hooks/UseAxiosSecure';
 
 const LoginByGoogle = () => {
 
-    const { signInWithGoogle, setUser } = useContext(AuthContext);
+    const { signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const axiosSecure = UseAxiosSecure();
 
     const handleSignInWithGoogle = () => {
         signInWithGoogle()
             .then(result => {
-                setUser(result.user);
-                Swal.fire({
-                    icon: "success",
-                    title: `Welcome ${result?.user.displayName}`,
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-                navigate(`${location?.state ? location.state : '/'}`)
+                const newUser = {
+                    name: result?.user?.displayName,
+                    email: result?.user?.email,
+                    image: result?.user?.photoURL,
+                    badge: "bronze",
+                    role: "user",
+                    isMember: false
+                }
+                if (result?.user) {
+                    axiosSecure.post('/users', newUser)
+                        .then(res => {
+                            if (res?.insertedId) {
+                                Swal.fire({
+                                    icon: "success",
+                                    title: `Welcome ${result?.user.displayName}`,
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
+                                navigate(`${location?.state ? location.state : '/'}`)
+                            }
+                        })
+                }
             })
             .catch(error => {
                 toast.error(error.message)

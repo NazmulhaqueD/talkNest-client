@@ -5,6 +5,8 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
+import Divider from '../../components/shared/Divider';
+import LoginByGoogle from '../../components/loginByGoogle/LoginByGoogle';
 
 const Login = () => {
 
@@ -47,6 +49,9 @@ const Login = () => {
 
                     <div><a className="link link-hover">Forgot password?</a></div>
                     <button type='submit' className="btn btn-primary w-full mt-4">Login</button>
+
+                    <Divider></Divider>
+                    <LoginByGoogle></LoginByGoogle>
 
                     <p>Don't have an account? <NavLink to={'/register'} className={'text-accent underline font-semibold '}>Register</NavLink></p>
 

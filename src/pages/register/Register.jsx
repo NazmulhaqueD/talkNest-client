@@ -6,6 +6,7 @@ import LoginByGoogle from '../../components/loginByGoogle/LoginByGoogle';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import UseAxiosSecure from '../../hooks/UseAxiosSecure';
+import Divider from '../../components/shared/Divider';
 
 const Register = () => {
 
@@ -17,11 +18,19 @@ const Register = () => {
         const { name, email, photo, password } = data;
         signUp(email, password)
             .then(result => {
+
                 if (result?.user) {
                     profileUpdate(name, photo)
                         .then(() => {
-                            const user = result?.user;
-                            axiosSecure.post('/users', user)
+                            const newUser = {
+                                name: result?.user?.displayName,
+                                email: result?.user?.email,
+                                image: result?.user?.photoURL,
+                                badge: "bronze",
+                                role: "user",
+                                isMember: false
+                            }
+                            axiosSecure.post('/users', newUser)
                                 .then(res => {
                                     console.log(res.data);
                                     Swal.fire({
@@ -63,6 +72,8 @@ const Register = () => {
 
                     <div><a className="link link-hover">Forgot password?</a></div>
                     <button type='submit' className="btn btn-primary w-full mt-4">Register</button>
+
+                    <Divider></Divider>
 
                     <LoginByGoogle></LoginByGoogle>
                     <p>Already have an account? <NavLink to='/login' className={'text-accent underline font-semibold'}>Login</NavLink></p>

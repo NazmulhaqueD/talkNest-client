@@ -46,7 +46,7 @@ const Navbar = () => {
                                     <div className={`dropdownBox w-46 flex flex-col z-20 bg-base-300 p-4 mt-0 rounded-b-sm gap-y-2 transition-all duration-300 absolute activeLink linkByImage -right-18 
                                     ${isDropdown ? 'top-14' : '-top-56'}`}>
                                         <p>{user?.displayName}</p>
-                                        <p><NavLink onClick={() => setIsDropdown(false)} to='/joinedEvents'>Dashboard</NavLink></p>
+                                        <p><NavLink onClick={() => setIsDropdown(false)} to='/dashboard'>Dashboard</NavLink></p>
                                         <p><NavLink onClick={() => setIsDropdown(false)}><Logout></Logout></NavLink></p>
                                     </div>
                                 </span> :
