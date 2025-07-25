@@ -5,6 +5,7 @@ import { IoLogOutSharp } from 'react-icons/io5';
 import { MdTipsAndUpdates } from 'react-icons/md';
 import { NavLink } from 'react-router';
 import { AuthContext } from '../../context/provider/AuthProvider';
+import Logout from '../logout/Logout';
 
 const AsideDash = ({ dbUser }) => {
 
@@ -31,6 +32,7 @@ const AsideDash = ({ dbUser }) => {
                         userRout :
                         adminRout
                 }
+                <span className='btn btn-accent w-full rounded-xl'><Logout></Logout></span>
             </div>
         </div>
     );

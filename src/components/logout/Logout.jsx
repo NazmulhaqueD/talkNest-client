@@ -18,7 +18,7 @@ const Logout = () => {
         }
 
     return (
-        <button onClick={handleLogout} className=''>LogOut</button>
+        <button onClick={handleLogout} className='w-full cursor-pointer'>LogOut</button>
     );
 };
 
