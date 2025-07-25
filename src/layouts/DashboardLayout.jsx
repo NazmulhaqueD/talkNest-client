@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AsideDash from '../components/dashboard/AsideDashboard';
 import NavDashboard from '../components/dashboard/NavDashboard';
-import { Outlet, useLoaderData } from 'react-router';
+import UseAxiosSecure from '../hooks/UseAxiosSecure';
+import { AuthContext } from '../context/provider/AuthProvider';
+import { Outlet } from 'react-router';
 
 const DashboardLayout = () => {
 
-    const dbUser = useLoaderData();
-    console.log(dbUser);
+    const { user } = useContext(AuthContext);
+    const axiosSecure = UseAxiosSecure();
+    const [dbUser, setDbUser] = useState(null)
 
+    console.log(dbUser);
+    useEffect(() => {
+        const dbUser = axiosSecure.get(`/user?email=${user?.email}`)
+            .then(res => {
+                setDbUser(res?.data);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        console.log(dbUser);
+    }, [axiosSecure, user])
 
     return (
         <div className="drawer lg:gap-6 lg:drawer-open">
@@ -15,7 +29,7 @@ const DashboardLayout = () => {
             <div className="drawer-content">
                 {/* Page content here */}
                 <NavDashboard></NavDashboard>
-                <div className='bg-base-300 rounded-sm min-h-[88vh] z-10'>
+                <div className='bg-base-300 p-4 rounded-sm min-h-[88vh] z-10'>
                     <Outlet></Outlet>
                 </div>
             </div>

@@ -41,12 +41,12 @@ const Navbar = () => {
                             user ?
                                 <span className='relative'>
                                     <div className="tooltip tooltip-bottom w-full flex flex-col items-center" data-tip={`${user?.displayName}`}>
-                                        <img onClick={() => setIsDropdown(!isDropdown)} src={user.photoURL} className='w-12 h-12 rounded-full cursor-pointer' alt="" />
+                                        <img onClick={() => setIsDropdown(!isDropdown)} src={user?.photoURL} className='w-12 h-12 rounded-full cursor-pointer' alt="" />
                                     </div>
                                     <div className={`dropdownBox w-46 flex flex-col z-20 bg-base-300 p-4 mt-0 rounded-b-sm gap-y-2 transition-all duration-300 absolute activeLink linkByImage -right-18 
                                     ${isDropdown ? 'top-14' : '-top-56'}`}>
                                         <p>{user?.displayName}</p>
-                                        <p><NavLink onClick={() => setIsDropdown(false)} to={`/dashboard/${user?.email}`}>Dashboard</NavLink></p>
+                                        <p><NavLink onClick={() => setIsDropdown(false)} to={'/myProfile'}>Dashboard</NavLink></p>
                                         <p><NavLink onClick={() => setIsDropdown(false)}><Logout></Logout></NavLink></p>
                                     </div>
                                 </span> :

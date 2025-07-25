@@ -1,10 +1,5 @@
-import { CgProfile } from 'react-icons/cg';
-import { FaShareSquare } from 'react-icons/fa';
 import { ImProfile } from 'react-icons/im';
-import { IoLogOutSharp } from 'react-icons/io5';
-import { MdTipsAndUpdates } from 'react-icons/md';
 import { NavLink } from 'react-router';
-import { AuthContext } from '../../context/provider/AuthProvider';
 import Logout from '../logout/Logout';
 
 const AsideDash = ({ dbUser }) => {
@@ -24,11 +19,11 @@ const AsideDash = ({ dbUser }) => {
 
     return (
         <div className=''>
-            <h1 className='text-4xl pt-2 font-bold text-primary mb-12'><NavLink to={'/'}>TalkNest</NavLink></h1>
+            <h1 className='text-4xl pt-2 font-bold text-primary mb-16'><NavLink to={'/'}>TalkNest</NavLink></h1>
             <h1 className='text-2xl font-bold my-6'>Dashboard</h1>
             <div className=' flex flex-col text-base-200 gap-6 asideDash'>
                 {
-                    dbUser.role === 'user' ?
+                    dbUser?.role === 'user' ?
                         userRout :
                         adminRout
                 }

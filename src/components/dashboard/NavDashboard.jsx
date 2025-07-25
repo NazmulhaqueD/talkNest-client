@@ -17,7 +17,7 @@ const NavDashboard = () => {
                     <img className='w-12 h-12 rounded-full' src={user?.photoURL} alt="" />
                 </div>
                 <label htmlFor="my-drawer" className="drawer-button lg:hidden">
-                    <IoMenu size={32} />
+                    <IoMenu size={36} />
                 </label>
 
             </div>
