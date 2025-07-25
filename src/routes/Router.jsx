@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 export const router = createBrowserRouter([
     {
@@ -23,4 +24,9 @@ export const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: 'dashBoard/:id',
+        element: <DashboardLayout></DashboardLayout>,
+        loader: ({params})=>fetch(`http://localhost:5000/user?email=${params.id}`)
+    }
 ]);

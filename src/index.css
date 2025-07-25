@@ -39,3 +39,15 @@ body {
   transition: .5s;
   border-radius: 8px;
 }
+.asideDash a{
+  border: 2px solid rgb(190, 186, 186);
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+.asideDash a:hover{
+  background-color: rgb(205, 214, 214);
+}
+.asideDash a.active{
+  background-color: silver;
+  color: green;
+}
