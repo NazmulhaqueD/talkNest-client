@@ -15,7 +15,7 @@ const Navbar = () => {
     </>
 
     return (
-        <nav className='bg-secondary text-accent shadow-sm mb-8 sticky top-0 z-50'>
+        <nav className='bg-secondary text-accent shadow-sm'>
             <div className="navbar max-w-7xl mx-auto px-4">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -43,7 +43,7 @@ const Navbar = () => {
                                     <div className="tooltip tooltip-bottom w-full flex flex-col items-center" data-tip={`${user?.displayName}`}>
                                         <img onClick={() => setIsDropdown(!isDropdown)} src={user?.photoURL} className='w-12 h-12 rounded-full cursor-pointer' alt="" />
                                     </div>
-                                    <div className={`dropdownBox w-46 flex flex-col z-20 bg-base-300 p-4 mt-0 rounded-b-sm gap-y-2 transition-all duration-300 absolute activeLink linkByImage -right-18 
+                                    <div className={`dropdownBox w-46 flex flex-col z-20 bg-base-300 p-4 mt-0 rounded-b-sm gap-y-2 transition-all duration-300 absolute activeLink linkByImage right-0 
                                     ${isDropdown ? 'top-14' : '-top-56'}`}>
                                         <p>{user?.displayName}</p>
                                         <p><NavLink onClick={() => setIsDropdown(false)} to={'/myProfile'}>Dashboard</NavLink></p>
