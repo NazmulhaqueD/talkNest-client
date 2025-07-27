@@ -1,12 +1,15 @@
 import React from 'react';
 import Banner from '../../components/bannar/Bannar';
-import TagSearch from '../../components/tag/TagSearch';
+import PostList from '../../components/posts/PostList';
 
 const Home = () => {
+
+
+
+
     return (
         <div>
-            <Banner></Banner>
-            <TagSearch></TagSearch>
+        <PostList></PostList>
         </div>
     );
 };

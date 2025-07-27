@@ -1,15 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Banner = ({ onSearch }) => {
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const handleSearch = (e) => {
-        e.preventDefault();
-        if (searchTerm.trim() !== '') {
-            onSearch(searchTerm); // Call parent function to fetch data from backend
-        }
-    };
-
+const Bannar = ({handleSearch}) => {
     return (
         <section className="bg-gradient-to-r from-base-200 to-gray-300 py-12 px-6 text-center rounded-xl shadow-md">
             <div className="max-w-3xl mx-auto">
@@ -19,8 +10,7 @@ const Banner = ({ onSearch }) => {
                 <form onSubmit={handleSearch} className="flex items-center justify-center gap-2">
                     <input
                         type="text"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
+                        name='searchTag'
                         placeholder="Enter tag name..."
                         className="px-4 py-2 w-full max-w-md rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
@@ -36,4 +26,4 @@ const Banner = ({ onSearch }) => {
     );
 };
 
-export default Banner;
+export default Bannar;

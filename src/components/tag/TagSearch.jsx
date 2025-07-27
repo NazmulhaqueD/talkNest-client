@@ -4,10 +4,12 @@ const TagSearch = ({ handleTagClick }) => {
     const tags = ['Technology', 'Lifestyle', 'Education', 'Health'];
 
     return (
-        <section className="my-2 px-4 flex justify-center gap-6">
+        <section className="my-2 px-4 flex justify-center gap-4">
             {
-                tags.map(tag=><button key={tag}
-                className='btn btn-primary rounded-lg btn-sm'
+                tags.map(tag => <button
+                    onClick={()=>handleTagClick(tag)}
+                    key={tag}
+                    className='btn btn-accent rounded-lg btn-sm'
                 >{tag}</button>)
             }
         </section>
