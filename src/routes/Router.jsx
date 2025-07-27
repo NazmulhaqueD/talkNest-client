@@ -6,6 +6,8 @@ import Register from "../pages/register/Register";
 import DashboardLayout from "../layouts/DashboardLayout";
 import PrivateRoute from "../components/private/PrivateRoute";
 import MyProfile from "../pages/dashboard/user/MyProfile";
+import AddPost from "../pages/dashboard/user/AddPost";
+import Membership from "../pages/membership/Membership";
 
 export const router = createBrowserRouter([
     {
@@ -23,6 +25,10 @@ export const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
+            },
+            {
+                path: 'membership',
+                element: <PrivateRoute><Membership></Membership></PrivateRoute>
             }
         ]
     },
@@ -34,7 +40,11 @@ export const router = createBrowserRouter([
             {
               path: 'myProfile',
               element: <MyProfile></MyProfile>  
-            }
+            },
+            {
+              path: 'addPost',
+              element: <AddPost></AddPost>  
+            },
         ]
     }
 ]);
