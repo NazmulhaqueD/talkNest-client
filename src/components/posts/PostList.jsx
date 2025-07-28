@@ -44,10 +44,6 @@ const PostList = () => {
     }
 
 
-
-
-
-
     return (
         <div>
             <Banner handleSearch={handleSearch} ></Banner>
