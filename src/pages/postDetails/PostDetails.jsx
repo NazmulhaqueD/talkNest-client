@@ -50,6 +50,7 @@ const PostDetails = () => {
       comment: commentText,
       userName: user.displayName,
       userImage: user.photoURL,
+      userEmail: user.email,
     });
 
     toast.success("Comment added!");

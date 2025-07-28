@@ -45,26 +45,28 @@ const MyPosts = () => {
 
 
     return (
-        <div className="overflow-x-auto max-w-7xl mx-auto p-6 ">
+        <div className="overflow-x-auto max-w-7xl mx-auto">
             <h2 className="text-2xl lg:text-4xl font-bold my-4 text-primary text-center">My Posts</h2>
-            <table className="table w-full shadow-lg">
-                <thead className="bg-base-200">
-                    <tr><th>#</th>
-                        <th>Title</th>
-                        <th>Votes</th>
-                        <th>Comment</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {myPosts.map((post,index) => <TableRawOfPosts
-                        key={post._id}
-                        post={post}
-                        handleDelete={handleDelete}
-                        index={index}
-                    ></TableRawOfPosts>)}
-                </tbody>
-            </table>
+            <div className='bg-base-200 min-h-[60vh] shadow-lg shadow-primary'>
+                <table className="table w-full ">
+                    <thead className="bg-secondary text-white">
+                        <tr><th>#</th>
+                            <th>Title</th>
+                            <th>Votes</th>
+                            <th>Comment</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {myPosts.map((post, index) => <TableRawOfPosts
+                            key={post._id}
+                            post={post}
+                            handleDelete={handleDelete}
+                            index={index}
+                        ></TableRawOfPosts>)}
+                    </tbody>
+                </table>
+            </div>
             {
                 myPosts.length === 0 && (
                     <p className="text-center mt-4 text-gray-500">You haven't posted anything yet.</p>

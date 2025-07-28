@@ -10,6 +10,7 @@ import AddPost from "../pages/dashboard/user/AddPost";
 import Membership from "../pages/membership/Membership";
 import PostDetails from "../pages/postDetails/PostDetails";
 import MyPosts from "../pages/dashboard/user/MyPosts";
+import CommentPage from "../pages/dashboard/user/CommentsPage";
 
 export const router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
             {
                 path: 'myPosts',
                 element: <MyPosts></MyPosts>
+            },
+            {
+                path: 'comments/:postId',
+                element: <CommentPage></CommentPage>
             },
         ]
     },
