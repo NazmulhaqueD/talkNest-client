@@ -7,7 +7,7 @@ const Bannar = ({handleSearch}) => {
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
                     Search Posts by Tag
                 </h1>
-                <form onSubmit={handleSearch} className="flex items-center justify-center gap-2">
+                <form onChange={handleSearch} className="flex items-center justify-center gap-2">
                     <input
                         type="text"
                         name='searchTag'

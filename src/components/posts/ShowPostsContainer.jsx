@@ -1,19 +1,19 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import UseAxiosSecure from '../../hooks/UseAxiosSecure';
+import PostCard from './PostCard';
 
-const ShowPostsContainer = ({ search, tag }) => {
+const ShowPostsContainer = () => {
 
     const [page, setPage] = useState(1);
     const limit = 5;
     const axiosSecure = UseAxiosSecure();
-    console.log(search, tag);
-    
+
 
     const { data, isLoading } = useQuery({
         queryKey: ['posts', page],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/posts?limit=${limit}&page=${page}&search=${page}`);
+            const res = await axiosSecure.get(`/posts?limit=${limit}&page=${page}`);
             return res.data;
         },
     });
@@ -25,14 +25,12 @@ const ShowPostsContainer = ({ search, tag }) => {
     if (isLoading) return <p>Loading...</p>;
 
     return (
-        <div>
-            <div className="grid md:grid-cols-2 gap-4">
-                {posts?.map((post) => (
-                    <div key={post._id} className="border p-4 rounded">
-                        <h2 className="text-xl font-bold">{post.postTitle}</h2>
-                        <p>{post.postDescription.slice(0, 100)}...</p>
-                    </div>
-                ))}
+        <div className='max-w-7xl mx-auto bg-base-300 rounded-lg p-4'>
+            <div className="max-w-7xl mx-auto my-8 grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+                {posts?.map((post) => <PostCard
+                    key={post._id}
+                    post={post}
+                ></PostCard>)}
             </div>
 
             <div className="mt-6 flex justify-center gap-2">
