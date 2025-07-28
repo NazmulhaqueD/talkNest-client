@@ -63,7 +63,7 @@ const CommentPage = () => {
                                         <>
                                             {comment.comment.slice(0, 20)}...
                                             <button
-                                                className="text-blue-600 underline ml-2"
+                                                className="text-blue-600 underline ml-2 cursor-pointer"
                                                 onClick={() => setModalComment(comment.comment)}
                                             >
                                                 Read More

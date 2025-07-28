@@ -5,7 +5,7 @@ import { FaTrash, FaComments } from 'react-icons/fa';
 
 const TableRawOfPosts = ({ handleDelete, post, index }) => {
     return (
-        <tr className="hover:shadow hover:bg-base-200">
+        <tr className="hover:shadow bg-base-200 hover:bg-base-300">
             <td>{index + 1}</td>
             <td className='font-semibold'>{post.postTitle}</td>
             <td>{post.upVote - post.downVote}</td>

@@ -47,8 +47,8 @@ const MyPosts = () => {
     return (
         <div className="overflow-x-auto max-w-7xl mx-auto">
             <h2 className="text-2xl lg:text-4xl font-bold my-4 text-primary text-center">My Posts</h2>
-            <div className='bg-base-200 min-h-[60vh] shadow-lg shadow-primary'>
-                <table className="table w-full ">
+            <div className='bg-base-200 min-h-[60vh] shadow-lg'>
+                <table className="table w-full">
                     <thead className="bg-secondary text-white">
                         <tr><th>#</th>
                             <th>Title</th>
