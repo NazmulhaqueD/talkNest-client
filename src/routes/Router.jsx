@@ -5,12 +5,12 @@ import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import DashboardLayout from "../layouts/DashboardLayout";
 import PrivateRoute from "../components/private/PrivateRoute";
-import MyProfile from "../pages/dashboard/user/MyProfile";
 import AddPost from "../pages/dashboard/user/AddPost";
 import Membership from "../pages/membership/Membership";
 import PostDetails from "../pages/postDetails/PostDetails";
 import MyPosts from "../pages/dashboard/user/MyPosts";
 import CommentPage from "../pages/dashboard/user/CommentsPage";
+import Profile from "../pages/profile/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -46,8 +46,8 @@ export const router = createBrowserRouter([
         // loader: ({params})=>fetch(`http://localhost:5000/user?email=${params.id}`),
         children: [
             {
-                path: 'myProfile',
-                element: <MyProfile></MyProfile>
+                path: 'profile',
+                element: <Profile></Profile>
             },
             {
                 path: 'addPost',

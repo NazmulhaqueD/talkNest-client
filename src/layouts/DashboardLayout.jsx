@@ -1,27 +1,26 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import AsideDash from '../components/dashboard/AsideDashboard';
 import NavDashboard from '../components/dashboard/NavDashboard';
 import UseAxiosSecure from '../hooks/UseAxiosSecure';
 import { AuthContext } from '../context/provider/AuthProvider';
 import { Outlet } from 'react-router';
+import { useQuery } from '@tanstack/react-query';
+import Loader from '../components/shared/Loader';
 
 const DashboardLayout = () => {
-
     const { user } = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure();
-    const [dbUser, setDbUser] = useState(null)
 
-    console.log(dbUser);
-    useEffect(() => {
-        const dbUser = axiosSecure.get(`/user?email=${user?.email}`)
-            .then(res => {
-                setDbUser(res?.data);
-            })
-            .catch(error => {
-                console.log(error);
-            })
-        console.log(dbUser);
-    }, [axiosSecure, user])
+    const { data: dbUser, isLoading } = useQuery({
+        queryKey: ['dbUser', user?.email],
+        queryFn: async () => {
+            if (!user?.email) return null;
+            const res = await axiosSecure.get(`/user?email=${user.email}`);
+            return res.data;
+        },
+        enabled: !!user?.email, // Only run if email exists
+    });
+    if(isLoading) return <Loader></Loader>;
 
     return (
         <div className="drawer lg:gap-6 lg:drawer-open">

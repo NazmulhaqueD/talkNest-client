@@ -4,7 +4,7 @@ import { FaMedal } from 'react-icons/fa';
 import UseAxiosSecure from '../../../hooks/UseAxiosSecure';
 import { AuthContext } from '../../../context/provider/AuthProvider';
 
-const MyProfile = () => {
+const UserProfile = () => {
     const { user } = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure();
 
@@ -76,4 +76,4 @@ const MyProfile = () => {
     );
 };
 
-export default MyProfile;
+export default UserProfile;
