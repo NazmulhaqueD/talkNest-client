@@ -1,22 +1,9 @@
-import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
 import UseAxiosSecure from '../../hooks/UseAxiosSecure';
 import PostCard from './PostCard';
 
-const ShowPostsContainer = () => {
+const ShowPostsContainer = ({ data, isLoading, limit,setPage,page }) => {
 
-    const [page, setPage] = useState(1);
-    const limit = 5;
-    const axiosSecure = UseAxiosSecure();
-
-
-    const { data, isLoading } = useQuery({
-        queryKey: ['posts', page],
-        queryFn: async () => {
-            const res = await axiosSecure.get(`/posts?limit=${limit}&page=${page}`);
-            return res.data;
-        },
-    });
+   
 
     const posts = data?.posts;
     const totalCount = data?.total;
@@ -26,7 +13,7 @@ const ShowPostsContainer = () => {
 
     return (
         <div className='max-w-7xl mx-auto bg-base-300 rounded-lg p-4'>
-            <div className="max-w-7xl mx-auto my-8 grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+            <div className="my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {posts?.map((post) => <PostCard
                     key={post._id}
                     post={post}

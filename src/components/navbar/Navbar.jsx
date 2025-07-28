@@ -41,7 +41,7 @@ const Navbar = () => {
                             user ?
                                 <span className='relative'>
                                     <div className="tooltip tooltip-bottom w-full flex flex-col items-center" data-tip={`${user?.displayName}`}>
-                                        <img onClick={() => setIsDropdown(!isDropdown)} src={user?.photoURL} className='w-12 h-12 rounded-full cursor-pointer' alt="" />
+                                        <img referrerPolicy='no-referrer' onClick={() => setIsDropdown(!isDropdown)} src={user?.photoURL} className='w-12 h-12 rounded-full cursor-pointer' alt="" />
                                     </div>
                                     <div className={`dropdownBox w-46 flex flex-col z-20 bg-base-300 p-4 mt-0 rounded-b-sm gap-y-2 transition-all duration-300 absolute activeLink linkByImage right-0 
                                     ${isDropdown ? 'top-14' : '-top-56'}`}>

@@ -8,6 +8,7 @@ import PrivateRoute from "../components/private/PrivateRoute";
 import MyProfile from "../pages/dashboard/user/MyProfile";
 import AddPost from "../pages/dashboard/user/AddPost";
 import Membership from "../pages/membership/Membership";
+import PostDetails from "../pages/postDetails/PostDetails";
 
 export const router = createBrowserRouter([
     {
@@ -16,7 +17,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element:<Home></Home>
+                element: <Home></Home>
             },
             {
                 path: '/login',
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
             {
                 path: 'membership',
                 element: <PrivateRoute><Membership></Membership></PrivateRoute>
+            },
+            {
+                path: 'post/:_id',
+                element: <PostDetails></PostDetails>
             }
         ]
     },
@@ -38,13 +43,14 @@ export const router = createBrowserRouter([
         // loader: ({params})=>fetch(`http://localhost:5000/user?email=${params.id}`),
         children: [
             {
-              path: 'myProfile',
-              element: <MyProfile></MyProfile>  
+                path: 'myProfile',
+                element: <MyProfile></MyProfile>
             },
             {
-              path: 'addPost',
-              element: <AddPost></AddPost>  
+                path: 'addPost',
+                element: <AddPost></AddPost>
             },
         ]
-    }
+    },
+
 ]);
