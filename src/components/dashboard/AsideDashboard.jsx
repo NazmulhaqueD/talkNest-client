@@ -7,7 +7,7 @@ const AsideDash = ({ dbUser }) => {
     const userRout = <>
         <NavLink to={'/myProfile'} className={'flex items-center gap-2 font-semibold'}><ImProfile /> <span>My Profile</span></NavLink>
         <NavLink to={'/addPost'} className={'flex items-center gap-2 font-semibold'}><ImProfile /> <span>Add Post</span></NavLink>
-        <NavLink to={'/myPost'} className={'flex items-center gap-2 font-semibold'}><ImProfile /> <span>My Posts</span></NavLink>
+        <NavLink to={'/myPosts'} className={'flex items-center gap-2 font-semibold'}><ImProfile /> <span>My Posts</span></NavLink>
     </>
     const adminRout = <>
         <NavLink to={'/adminProfile'} className={'flex items-center gap-2 font-semibold'}><ImProfile /> <span>Admin Profile</span></NavLink>
