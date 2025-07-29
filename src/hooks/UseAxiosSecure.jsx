@@ -1,12 +1,12 @@
 import axios from 'axios';
-import React from 'react';
-
+import { AuthContext } from '../context/provider/AuthProvider';
 
 const axiosSecure = axios.create({
     baseURL: 'http://localhost:5000'
 })
 
 const UseAxiosSecure = () => {
+    
     return axiosSecure;
 };
 

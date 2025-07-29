@@ -13,7 +13,7 @@ const NotificationIcon = () => {
     });
 
     return (
-        <div className="relative">
+        <div id='notification' className="relative">
             <Bell size={30} className="w-6 h-6 text-accent" />
             {data > 0 && (
                 <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">

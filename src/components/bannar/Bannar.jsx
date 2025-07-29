@@ -4,7 +4,7 @@ const Bannar = ({handleSearch}) => {
     return (
         <section className="bg-gradient-to-r from-base-200 to-gray-300 py-12 px-6 text-center rounded-xl shadow-md">
             <div className="max-w-3xl mx-auto">
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
                     Search Posts by Tag
                 </h1>
                 <form onSubmit={handleSearch} className="flex items-center justify-center gap-2">

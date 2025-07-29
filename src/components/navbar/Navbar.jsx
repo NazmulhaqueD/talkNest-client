@@ -36,7 +36,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end items-center gap-8">
-                    <NotificationIcon></NotificationIcon>
+                    <a href="#notification"><NotificationIcon></NotificationIcon></a>
                     <div>
                         {
                             user ?
