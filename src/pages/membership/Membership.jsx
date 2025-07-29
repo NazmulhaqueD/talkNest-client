@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import UseAxiosSecure from '../../hooks/UseAxiosSecure';
 import { toast } from 'react-toastify';
+import { User } from 'lucide-react';
+import { AuthContext } from '../../context/provider/AuthProvider';
 
 const stripePromise = loadStripe(import.meta.env.VITE_stripe_publishKey);
 
@@ -14,6 +16,7 @@ const CheckoutForm = () => {
     const [success, setSuccess] = useState('');
 
     const axiosSecure = UseAxiosSecure();
+    const { user } = useContext(AuthContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,7 +25,7 @@ const CheckoutForm = () => {
         setSuccess('');
 
 
-        const res = await fetch('http://localhost:5000/create-payment-intent', {
+        const res = await fetch('https://forum-server-ebon.vercel.app/create-payment-intent', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ amount: 500 })
@@ -42,11 +45,12 @@ const CheckoutForm = () => {
             const data = {
                 paymentId: paymentResult.paymentIntent.id,
                 amount: paymentResult.paymentIntent.amount,
-                status: paymentResult.paymentIntent.status
+                status: paymentResult.paymentIntent.status,
+                userEmail: User.email,
             };
 
             try {
-                const res = await axiosSecure.post('/save-payment', data);
+                const res = await axiosSecure.post(`/save-payment?email=${user.email}`, data);
                 if (res.data.success) {
                     toast.success('Payment info saved!');
                 } else {

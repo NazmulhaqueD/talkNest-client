@@ -17,7 +17,7 @@ const MyPosts = () => {
             return res.data;
         }
     });
-    const handleDelete = async (id) => {
+    const handleDelete = async (id) => {    
         const result = await Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -61,7 +61,7 @@ const MyPosts = () => {
                     <tbody>
                         {
                             myPosts.length === 0 && (
-                                <p className="text-center mt-4 text-4xl text-gray-500">You haven't posted anything yet.</p>
+                                <div className="text-center mt-4 text-4xl text-gray-500">You haven't posted anything yet.</div>
                             )
                         }
                         {myPosts.map((post, index) => <TableRawOfPosts

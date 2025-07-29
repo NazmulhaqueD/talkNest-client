@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../context/provider/AuthProvider';
 import LoginByGoogle from '../../components/loginByGoogle/LoginByGoogle';
@@ -13,6 +13,7 @@ const Register = () => {
     const { signUp, profileUpdate } = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
     const axiosSecure = UseAxiosSecure();
+    const navigate = useNavigate();
 
     const onSubmit = data => {
         const { name, email, photo, password } = data;
@@ -33,6 +34,7 @@ const Register = () => {
                             axiosSecure.post('/users', newUser)
                                 .then(res => {
                                     console.log(res.data);
+                                    navigate('/')
                                     Swal.fire({
                                         icon: "success",
                                         title: 'Your Registration is successfully',

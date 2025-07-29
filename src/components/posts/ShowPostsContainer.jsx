@@ -20,9 +20,7 @@ const ShowPostsContainer = ({ data, isLoading, limit,setPage,page }) => {
                     post={post}
                 ></PostCard>)}
             </div>
-            {
-                posts?.length
-            }
+            
 
             <div className="mt-6 flex justify-center gap-2">
                 {[...Array(totalPages).keys()].map((num) => (

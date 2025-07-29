@@ -65,7 +65,7 @@ const AddPost = () => {
     };
 
 
-    const isEligible = myPosts?.postCount >= 5 && dbUser?.badge === "bronze";
+    const isEligible = myPosts?.postCount >= 5 && dbUser?.isMember === false;
 
 
     if (isEligible) {
@@ -103,7 +103,7 @@ const AddPost = () => {
                     <select className="input w-full" required name='tag'>
                         <option value="">Select a tag</option>
                         {
-                            tags.map(tag=><option value={tag?.name}>{tag.name}</option>)
+                            tags.map(tag => <option value={tag?.name}>{tag.name}</option>)
                         }
                     </select>
                 </fieldset>
