@@ -43,7 +43,6 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
-        // loader: ({params})=>fetch(`http://localhost:5000/user?email=${params.id}`),
         children: [
             {
                 path: 'profile',
