@@ -18,8 +18,13 @@ body {
 
 .menu a.active {
   color: #10B981;
+  
 }
 
+.mobileLink a{
+  color: blue;
+
+}
 .dropdownBox {
   background-color: #1F2937;
   flex-direction: column;

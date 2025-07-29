@@ -21,7 +21,7 @@ const TagSearch = ({ handleTagClick }) => {
     }
 
     return (
-        <section className="my-2 px-4 flex justify-center gap-4">
+        <section className="my-2 px-4 flex flex-wrap justify-center gap-4">
             {
                 tags.map((tag, index) => (
                     <button

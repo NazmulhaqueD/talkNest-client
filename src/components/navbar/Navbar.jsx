@@ -15,7 +15,7 @@ const Navbar = () => {
     </>
 
     return (
-        <nav className='bg-secondary text-accent shadow-sm'>
+        <nav className='bg-secondary text-accent shadow-sm fixed top-0 left-0 w-full z-50'>
             <div className="navbar max-w-7xl mx-auto px-4">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -24,7 +24,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 mobileLinks shadow activeLink">
+                            className="menu mobileLink activeLink menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 mobileLinks shadow activeLink">
                             {links}
                         </ul>
                     </div>
@@ -41,7 +41,7 @@ const Navbar = () => {
                         {
                             user ?
                                 <span className='relative'>
-                                    <div className="tooltip tooltip-bottom w-full flex flex-col items-center" data-tip={`${user?.displayName}`}>
+                                    <div className="tooltip tooltip-left w-full flex flex-col items-center" data-tip={`${user?.displayName}`}>
                                         <img referrerPolicy='no-referrer' onClick={() => setIsDropdown(!isDropdown)} src={user?.photoURL} className='w-12 h-12 rounded-full cursor-pointer' alt="" />
                                     </div>
                                     <div className={`dropdownBox w-46 flex flex-col z-20 bg-base-300 p-4 mt-0 rounded-b-sm gap-y-2 transition-all duration-300 absolute activeLink linkByImage right-0 

@@ -77,7 +77,7 @@ const CheckoutForm = () => {
 
 const Membership = () => (
     <div>
-        <h2 className="text-2xl font-bold mb-4 text-center">Membership Payment</h2>
+        <h2 className="text-2xl font-bold mt-24 text-center">Membership Payment</h2>
         <Elements stripe={stripePromise}>
             <CheckoutForm />
         </Elements>
