@@ -22,7 +22,7 @@ const ShowAnnouncements = () => {
                 {data.announcements.map((announcement) => (
                     <div key={announcement._id} className="bg-white p-4 rounded-lg shadow-sm hover:bg-base-200 hover:shadow-lg hover:scale-105 transition-all duration-300">
                         <div className="flex items-center gap-4 mb-2">
-                            <img src={announcement.authorImage} alt="Author" className="w-10 h-10 rounded-full" />
+                            <img referrerPolicy='no-referrer' src={announcement.authorImage} alt="Author" className="w-10 h-10 rounded-full" />
                             <p className="font-semibold">{announcement.authorName}</p>
                         </div>
                         <h3 className="text-xl font-bold">{announcement.title}</h3>

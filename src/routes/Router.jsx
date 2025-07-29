@@ -14,6 +14,8 @@ import Profile from "../pages/profile/Profile";
 import ManageUsers from "../pages/dashboard/admin/ManageUsers";
 import ReportedComments from "../pages/dashboard/admin/ReportedComments";
 import MakeAnnouncement from "../pages/dashboard/admin/MakeAnnouncement";
+import ShowAnnouncements from "../components/announcement/ShowAnnouncemnet";
+import ErrorPage from "../pages/error/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -39,6 +41,10 @@ export const router = createBrowserRouter([
             {
                 path: 'post/:_id',
                 element: <PostDetails></PostDetails>
+            },
+            {
+                path: 'announcement',
+                element: <ShowAnnouncements></ShowAnnouncements>
             },
 
         ]
@@ -77,5 +83,9 @@ export const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: '/*',
+        element: <ErrorPage></ErrorPage>
+    }
 
 ]);
