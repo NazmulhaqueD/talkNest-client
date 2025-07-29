@@ -23,6 +23,7 @@ const LoginByGoogle = () => {
                     role: "user",
                     isMember: false
                 }
+                navigate(`${location?.state ? location.state : '/'}`)
                 if (result?.user) {
                     axiosSecure.post('/users', newUser)
                         .then(res => {
@@ -33,7 +34,6 @@ const LoginByGoogle = () => {
                                     showConfirmButton: false,
                                     timer: 2000
                                 });
-                                navigate(`${location?.state ? location.state : '/'}`)
                             }
                         })
                 }

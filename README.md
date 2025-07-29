@@ -1,12 +1,76 @@
-# React + Vite
+# 🧑‍💻 DevForum - A MERN Stack Community Forum
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern community discussion platform built with the MERN Stack, allowing users to share posts, comment, upvote/downvote, and engage through a membership model.
 
-Currently, two official plugins are available:
+## 🌐 Live Site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 [Live Website](https://your-deployed-site-url.com)
 
-## Expanding the ESLint configuration
+## 📦 Client Repository
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔗 [GitHub - Client Side](https://github.com/your-username/client-repo)
+
+## ⚙️ Server Repository
+
+🔗 [GitHub - Server Side](https://github.com/your-username/server-repo)
+
+---
+
+## 🔥 Features
+
+- 🔐 **User Authentication (Email/Password + Social Login)**
+- 🏆 **Badges System**: Bronze for new users, Gold for members
+- 📝 **Post Creation** (Limited for non-members, unlimited for members)
+- 💬 **Comment System** (with report & feedback option)
+- 🔄 **Upvote / Downvote with vote difference sorting**
+- 💳 **Stripe Payment Integration** for membership
+- 📢 **Announcement System** with notification count
+- 🔍 **Search by Tags (Backend) + Popular Search History**
+- 🧑‍💼 **Admin Dashboard**: Manage users, reports, make announcements
+- 📊 **Admin Analytics**: Pie chart showing site stats (posts/comments/users)
+- ⚙️ **Post Visibility Toggle** (Only Me/Public)
+- 📁 **Pagination** on all table views (users, posts, etc.)
+
+---
+
+## 🔧 Tech Stack
+
+### 🚀 Frontend
+- React.js
+- React Router DOM
+- Tailwind CSS + DaisyUI
+- React Hook Form
+- React Icons
+- React Toastify
+- React Share
+- Recharts
+- SweetAlert2
+
+### 🔙 Backend
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+- JWT Authentication
+- Stripe for Payment
+- CORS, dotenv
+
+---
+
+## 📁 Folder Structure Highlights
+
+```bash
+📦 client/
+ ┣ 📂 components/
+ ┣ 📂 pages/
+ ┣ 📂 context/
+ ┣ 📂 hooks/
+ ┣ 📂 layouts/
+ ┣ 📂 routes/
+ ┣ 📜 App.jsx
+ ┣ 📜 main.jsx
+📦 server/
+ ┣ 📂 routes/
+ ┣ 📂 controllers/
+ ┣ 📂 middleware/
+ ┣ 📂 models/
+ ┣ 📜 index.js
