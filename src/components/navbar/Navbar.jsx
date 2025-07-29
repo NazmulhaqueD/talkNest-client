@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/provider/AuthProvider';
 import { NavLink } from 'react-router';
 import Logout from '../logout/Logout';
+import NotificationIcon from '../announcement/NotificationIcon';
 
 const Navbar = () => {
     const [isDropdown, setIsDropdown] = useState(false);
@@ -10,7 +11,6 @@ const Navbar = () => {
     const links = <>
         <NavLink className='text-base-100 hover:text-primary' to='/'>home</NavLink>
         <NavLink className='text-base-100 hover:text-primary' to='/membership'>Membership</NavLink>
-        <NavLink className='text-base-100 hover:text-primary' to='/notifications'>Notification </NavLink>
 
     </>
 
@@ -35,7 +35,8 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end items-center gap-2">
+                <div className="navbar-end items-center gap-8">
+                    <NotificationIcon></NotificationIcon>
                     <div>
                         {
                             user ?

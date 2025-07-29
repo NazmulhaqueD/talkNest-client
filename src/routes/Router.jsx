@@ -13,6 +13,7 @@ import CommentPage from "../pages/dashboard/user/CommentsPage";
 import Profile from "../pages/profile/Profile";
 import ManageUsers from "../pages/dashboard/admin/ManageUsers";
 import ReportedComments from "../pages/dashboard/admin/ReportedComments";
+import MakeAnnouncement from "../pages/dashboard/admin/MakeAnnouncement";
 
 export const router = createBrowserRouter([
     {
@@ -69,6 +70,10 @@ export const router = createBrowserRouter([
             {
                 path: 'reportedComments',
                 element: <ReportedComments></ReportedComments>
+            },
+            {
+                path: 'announcement',
+                element: <MakeAnnouncement></MakeAnnouncement>
             }
         ]
     },

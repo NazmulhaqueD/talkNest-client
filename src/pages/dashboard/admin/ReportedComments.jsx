@@ -41,11 +41,11 @@ const ReportedComments = () => {
 
     return (
         <div className="p-4">
-            <h2 className="text-2xl font-bold mb-4">Reported Comments</h2>
-            <div className="overflow-x-auto shadow-md rounded-lg">
+            <h2 className="text-2xl lg:text-4xl font-bold mb-4 text-center text-primary">Reported Comments</h2>
+            <div className="overflow-x-auto shadow bg-base-100 min-h-[60vh] rounded-lg">
                 <table className="table w-full">
                     <thead>
-                        <tr>
+                        <tr className='bg-base-200'>
                             <th>#</th>
                             <th>Commenter Email</th>
                             <th>Comment</th>
@@ -56,7 +56,9 @@ const ReportedComments = () => {
                     </thead>
                     <tbody>
                         {data?.reportedComments?.map((report, index) => (
-                            <tr key={report._id}>
+                            <tr key={report._id}
+                                className='hover:bg-base-200'
+                            >
                                 <td>{(page - 1) * limit + index + 1}</td>
                                 <td>{report.userName}</td>
                                 <td>
