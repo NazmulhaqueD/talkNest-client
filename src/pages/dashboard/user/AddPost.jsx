@@ -11,6 +11,15 @@ const AddPost = () => {
     const { user } = useContext(AuthContext);
     const date = new Date();
 
+
+    const { data: tags = [] } = useQuery({
+        queryKey: ['tags'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/tags');
+            return res.data;
+        }
+    });
+
     const { data: myPosts, refetch } = useQuery({
         queryKey: ['myPostsCount', user.email],
         queryFn: async () => {
@@ -45,6 +54,7 @@ const AddPost = () => {
                 if (res.data?.insertedId) {
                     toast.success('Your post has been successfully')
                     refetch()
+                    form.reset();
                 }
             })
             .catch(error => {
@@ -92,10 +102,9 @@ const AddPost = () => {
                     <legend className="fieldset-legend text-lg">Tag</legend>
                     <select className="input w-full" required name='tag'>
                         <option value="">Select a tag</option>
-                        <option value="technology">Technology</option>
-                        <option value="lifestyle">Lifestyle</option>
-                        <option value="education">Education</option>
-                        <option value="health">Health</option>
+                        {
+                            tags.map(tag=><option value={tag?.name}>{tag.name}</option>)
+                        }
                     </select>
                 </fieldset>
 

@@ -41,7 +41,7 @@ const AdminProfile = () => {
     };
 
     return (
-        <section className="max-w-4xl mx-auto py-10 px-4">
+        <section className="max-w-4xl mx-auto py-6 px-4">
             <div className="bg-white shadow-md rounded-lg p-6 mb-10">
                 <div className="flex items-center space-x-6">
                     <img
@@ -61,7 +61,7 @@ const AdminProfile = () => {
                 </div>
             </div>
 
-            <div className="bg-white shadow-md rounded-lg p-6 mb-10">
+            <div className="bg-white shadow-md rounded-lg p-6 mb-4">
                 <h3 className="text-xl font-semibold mb-4">Site Statistics</h3>
                 <PieChart width={300} height={300}>
                     <Pie

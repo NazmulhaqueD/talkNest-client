@@ -13,6 +13,8 @@ const TagSearch = ({ handleTagClick }) => {
             return res.data;
         }
     });
+    console.log(tags);
+    
 
     if (isLoading) {
         return <Loader></Loader>;
@@ -23,10 +25,10 @@ const TagSearch = ({ handleTagClick }) => {
             {
                 tags.map((tag, index) => (
                     <button
-                        onClick={() => handleTagClick(tag)}
+                        onClick={() => handleTagClick(tag.name)}
                         key={index}
                         className='btn btn-accent rounded-lg btn-sm focus:btn-primary'
-                    >{tag}</button>
+                    >{tag?.name}</button>
                 ))
             }
         </section>
