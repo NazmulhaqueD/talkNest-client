@@ -13,7 +13,7 @@ const AsideDash = ({ dbUser }) => {
         <NavLink to={'/profile'} className={'flex items-center gap-2 font-semibold'}><ImProfile /> <span>Admin Profile</span></NavLink>
         <NavLink to={'/manageUsers'} className={'flex items-center gap-2 font-semibold'}><ImProfile /> <span>Manage Users</span></NavLink>
         <NavLink to={'/reportedComments'} className={'flex items-center gap-2 font-semibold'}><ImProfile /> <span>Reported Comments</span></NavLink>
-        <NavLink to={'/reportedComments'} className={'flex items-center gap-2 font-semibold'}><ImProfile /> <span>Make Announcement
+        <NavLink to={'/announcement'} className={'flex items-center gap-2 font-semibold'}><ImProfile /> <span>Make Announcement
         </span></NavLink>
     </>
 
