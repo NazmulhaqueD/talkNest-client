@@ -50,7 +50,8 @@ const MyPosts = () => {
             <div className='bg-base-200 min-h-[60vh] shadow-lg'>
                 <table className="table w-full">
                     <thead className="bg-secondary text-white">
-                        <tr><th>#</th>
+                        <tr>
+                            <th>#</th>
                             <th>Title</th>
                             <th>Votes</th>
                             <th>Comment</th>
@@ -58,6 +59,11 @@ const MyPosts = () => {
                         </tr>
                     </thead>
                     <tbody>
+                        {
+                            myPosts.length === 0 && (
+                                <p className="text-center mt-4 text-4xl text-gray-500">You haven't posted anything yet.</p>
+                            )
+                        }
                         {myPosts.map((post, index) => <TableRawOfPosts
                             key={post._id}
                             post={post}
@@ -67,11 +73,7 @@ const MyPosts = () => {
                     </tbody>
                 </table>
             </div>
-            {
-                myPosts.length === 0 && (
-                    <p className="text-center mt-4 text-gray-500">You haven't posted anything yet.</p>
-                )
-            }
+
         </div>
     );
 };

@@ -11,6 +11,7 @@ import PostDetails from "../pages/postDetails/PostDetails";
 import MyPosts from "../pages/dashboard/user/MyPosts";
 import CommentPage from "../pages/dashboard/user/CommentsPage";
 import Profile from "../pages/profile/Profile";
+import ManageUsers from "../pages/dashboard/admin/ManageUsers";
 
 export const router = createBrowserRouter([
     {
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
                 path: 'comments/:postId',
                 element: <CommentPage></CommentPage>
             },
+            {
+                path: 'manageUsers',
+                element: <ManageUsers></ManageUsers>
+            }
         ]
     },
 

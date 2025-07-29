@@ -45,7 +45,7 @@ const Login = () => {
                     <input {...register('email')} type="email" name='email' className="input" required placeholder="Email" />
 
                     <label className="label">Password</label>
-                    <input {...register('email')} type="password" name='password' className="input" required placeholder="Password" />
+                    <input {...register('password')} type="password" name='password' className="input" required placeholder="Password" />
 
                     <div><a className="link link-hover">Forgot password?</a></div>
                     <button type='submit' className="btn btn-primary w-full mt-4">Login</button>
