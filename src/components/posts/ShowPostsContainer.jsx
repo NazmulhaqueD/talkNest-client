@@ -2,13 +2,14 @@ import { Loader } from 'lucide-react';
 import UseAxiosSecure from '../../hooks/UseAxiosSecure';
 import PostCard from './PostCard';
 
-const ShowPostsContainer = ({ data, isLoading, limit,setPage,page }) => {
+const ShowPostsContainer = ({ data, isLoading, limit, setPage, page }) => {
 
-   
 
+    
     const posts = data?.posts;
     const totalCount = data?.total;
     const totalPages = Math.ceil(totalCount / limit);
+    console.log(posts);
 
     if (isLoading) return <Loader></Loader>;
 
@@ -20,7 +21,7 @@ const ShowPostsContainer = ({ data, isLoading, limit,setPage,page }) => {
                     post={post}
                 ></PostCard>)}
             </div>
-            
+
 
             <div className="mt-6 flex justify-center gap-2">
                 {[...Array(totalPages).keys()].map((num) => (

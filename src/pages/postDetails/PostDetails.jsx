@@ -25,6 +25,15 @@ const PostDetails = () => {
     }
   });
 
+  const { data: commentCountData } = useQuery({
+    queryKey: ['commentCount', _id],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/comments/count/${_id}`);
+      return res.data;
+    },
+    enabled: !!_id,
+  });
+
   const handleUpvote = async () => {
     if (!user) return toast.error("Please login first");
     await axiosSecure.patch(`/posts/${_id}/upvote`);
@@ -40,7 +49,7 @@ const PostDetails = () => {
     refetch();
     queryClient.invalidateQueries(['posts']);
   };
-  
+
 
   const handleComment = async () => {
     if (!user) return toast.error("Login to comment");
@@ -74,11 +83,9 @@ const PostDetails = () => {
         <p className="text-gray-700 mb-4">{post.postDescription}</p>
 
         <div className="flex gap-2 mb-4 flex-wrap">
-          {post.tags?.map((tag, index) => (
-            <span key={index} className="bg-blue-100 text-blue-700 px-2 py-1 text-sm rounded">
-              #{tag}
-            </span>
-          ))}
+          <span className="bg-blue-100 text-blue-700 px-2 py-1 text-sm rounded">
+            #{post.tag}
+          </span>
         </div>
 
         <div className="flex items-center gap-4 mb-6">
@@ -94,7 +101,7 @@ const PostDetails = () => {
         </div>
 
         <div className="mt-6">
-          <h3 className="text-xl font-semibold mb-3">Comments ({post.comments?.length || 0})</h3>
+          <h3 className="text-xl font-semibold mb-3">Comments ({commentCountData.count || 0})</h3>
 
           <div className="mb-4">
             <textarea

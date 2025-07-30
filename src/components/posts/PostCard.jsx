@@ -1,6 +1,7 @@
-import React from 'react';
 import { FaRegComments, FaArrowUp, FaArrowDown } from 'react-icons/fa';
 import { NavLink } from 'react-router';
+import UseAxiosSecure from '../../hooks/UseAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
 
 const PostCard = ({ post }) => {
     const {
@@ -12,16 +13,26 @@ const PostCard = ({ post }) => {
         date,
         upVote,
         downVote,
-        commentCount
+        _id
     } = post;
 
+    const axiosSecure = UseAxiosSecure();
     const voteCount = upVote - downVote;
-
-    // 30 word description
     const shortDescription = postDescription?.split(' ').slice(0, 15).join(' ') + '...';
-
-    // Format time
     const formattedDate = new Date(date).toLocaleDateString();
+    
+    
+    
+    const { data: commentCountData } = useQuery({
+        queryKey: ['commentCount', _id],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/comments/count/${_id}`);
+            return res.data;
+        },
+        enabled: !!_id,
+    });
+    
+    console.log(_id,commentCountData);
 
     return (
         <NavLink to={`/post/${post._id}`}>
@@ -53,7 +64,7 @@ const PostCard = ({ post }) => {
                 <div className="flex items-center justify-between text-sm mt-3">
                     <div className="flex items-center gap-3 text-gray-600">
                         <div className="flex items-center gap-1">
-                            <FaRegComments size={20} /> {commentCount || 0}
+                            <FaRegComments size={20} /> {commentCountData?.count || 0}
                         </div>
                         <div className="flex items-center gap-1">
                             <FaArrowUp size={20} className="text-green-500" /> {upVote}
