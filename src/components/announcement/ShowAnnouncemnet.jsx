@@ -16,7 +16,7 @@ const ShowAnnouncements = () => {
     if (!data?.announcements?.length) return null; 
 
     return (
-        <section className="p-4 bg-base-200 max-w-7xl mx-auto rounded-xl shadow-lg my-16">
+        <section className="p-4 bg-base-200 max-w-7xl mx-auto rounded-xl shadow-lg mt-16">
             <h2 className="text-2xl lg:text-4xl text-primary text-center font-bold my-6">📢 Announcements</h2>
             <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-6">
                 {data.announcements.map((announcement) => (

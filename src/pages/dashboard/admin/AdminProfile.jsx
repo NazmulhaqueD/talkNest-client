@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+import { PieChart, Pie, Cell, Tooltip, Legend , ResponsiveContainer} from 'recharts';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../context/provider/AuthProvider';
 import UseAxiosSecure from '../../../hooks/UseAxiosSecure';
@@ -41,9 +41,9 @@ const AdminProfile = () => {
     };
 
     return (
-        <section className="max-w-4xl mx-auto py-6 px-4">
+        <section className="max-w-4xl mx-auto ">
             <div className="bg-white shadow-md rounded-lg p-6 mb-10">
-                <div className="flex items-center space-x-6">
+                <div className="sm:flex items-center space-x-6">
                     <img
                         src={user?.photoURL}
                         alt="Admin"
@@ -61,29 +61,35 @@ const AdminProfile = () => {
                 </div>
             </div>
 
-            <div className="bg-white shadow-md rounded-lg p-6 mb-4">
+
+            <div className="bg-white shadow-md rounded-lg p-4 sm:p-6 mb-4 w-full overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-4">Site Statistics</h3>
-                <PieChart width={300} height={300}>
-                    <Pie
-                        data={pieData}
-                        cx={150}
-                        cy={150}
-                        labelLine={false}
-                        label={({ name, percent }) =>
-                            `${name}: ${(percent * 100).toFixed(0)}%`
-                        }
-                        outerRadius={100}
-                        fill="#8884d8"
-                        dataKey="value"
-                    >
-                        {pieData.map((_, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))}
-                    </Pie>
-                    <Tooltip />
-                    <Legend />
-                </PieChart>
+                <div className="w-full h-64">
+                    <ResponsiveContainer width="100%" height="100%">
+                        <PieChart>
+                            <Pie
+                                data={pieData}
+                                cx="50%"
+                                cy="50%"
+                                labelLine={false}
+                                label={({ name, percent }) =>
+                                    `${name}: ${(percent * 100).toFixed(0)}%`
+                                }
+                                outerRadius="80%"
+                                fill="#8884d8"
+                                dataKey="value"
+                            >
+                                {pieData.map((_, index) => (
+                                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                ))}
+                            </Pie>
+                            <Tooltip />
+                            <Legend />
+                        </PieChart>
+                    </ResponsiveContainer>
+                </div>
             </div>
+
 
             <div className="bg-white shadow-md rounded-lg p-6">
                 <h3 className="text-xl font-semibold mb-4">Add New Tag</h3>

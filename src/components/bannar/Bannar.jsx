@@ -11,7 +11,7 @@ const Bannar = ({handleSearch}) => {
                     <input
                         type="text"
                         name='searchTag'
-                        placeholder="Enter tag name..."
+                        placeholder="Search by title..."
                         className="px-4 py-2 w-full max-w-md rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                     <button

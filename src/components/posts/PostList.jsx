@@ -40,7 +40,6 @@ const PostList = () => {
         setSearch('');
         setPage(1);
         console.log(tag);
-        
     }
 
 

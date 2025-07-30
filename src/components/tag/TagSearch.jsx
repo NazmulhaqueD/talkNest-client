@@ -21,7 +21,7 @@ const TagSearch = ({ handleTagClick }) => {
     }
 
     return (
-        <section className="my-2 px-4 flex flex-wrap justify-center gap-4">
+        <section className="my-2 px-4 flex flex-wrap justify-center gap-4 mt-4">
             {
                 tags.map((tag, index) => (
                     <button
@@ -31,6 +31,7 @@ const TagSearch = ({ handleTagClick }) => {
                     >{tag?.name}</button>
                 ))
             }
+            <button onClick={() => handleTagClick('popular')} className='btn btn-accent rounded-lg btn-sm focus:btn-primary'>Popular</button>
         </section>
     );
 };

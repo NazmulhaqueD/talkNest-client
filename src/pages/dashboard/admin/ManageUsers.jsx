@@ -69,7 +69,7 @@ const ManageUsers = () => {
                                     )}
                                 </td>
                                 <td>
-                                    {user.membership ? 'Member' : 'Free'}
+                                    {user.isMember ? 'Member' : 'Free'}
                                 </td>
                             </tr>
                         ))}

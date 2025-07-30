@@ -10,7 +10,9 @@ const NavDashboard = () => {
 
     return (
         <div className='px-4 py-6 shadow-lg flex justify-between items-center mb-6 sticky top-0 z-50 bg-base-200'>
-            <h1 className='text-xl lg:text-3xl font-semibold'><span className='text-accent'>Welcome Back!</span><br className=' lg:hidden ' /> {user?.displayName}</h1>
+            <h1 className='text-xl lg:text-3xl font-semibold'><span className='text-accent'>Welcome Back! </span><br className=' lg:hidden ' />
+                {user?.displayName.split(' ').slice(0, 2).join(' ')}
+            </h1>
             <div className='flex justify-center items-center gap-4'>
                 <NavLink to={'/'}><FaHome size={36} /></NavLink>
                 <div>

@@ -1,17 +1,24 @@
-import { Loader } from 'lucide-react';
-import UseAxiosSecure from '../../hooks/UseAxiosSecure';
+import Loader from '../shared/Loader';
 import PostCard from './PostCard';
 
 const ShowPostsContainer = ({ data, isLoading, limit, setPage, page }) => {
 
 
-    
+
     const posts = data?.posts;
     const totalCount = data?.total;
     const totalPages = Math.ceil(totalCount / limit);
     console.log(posts);
 
     if (isLoading) return <Loader></Loader>;
+    if (posts.length === 0) {
+        return <>
+            <div className='max-w-sm border-2 rounded-lg mx-auto mt-8 p-6 bg-base-300'>
+                <h1 className='text-5xl text-error text-center py-6'>Ops!!!!!!!!!!</h1>
+                <p className='text-2xl text-center'>Data is not found</p>
+            </div>
+        </>
+    }
 
     return (
         <div className='max-w-7xl mx-auto bg-base-300 min-h-[55vh] rounded-lg my-8 p-4'>
