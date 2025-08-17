@@ -6,13 +6,16 @@ import NotificationIcon from '../announcement/NotificationIcon';
 
 const Navbar = () => {
     const [isDropdown, setIsDropdown] = useState(false);
-    const { user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     const links = <>
         <NavLink className='text-base-100 hover:text-primary' to='/'>home</NavLink>
         <NavLink className='text-base-100 hover:text-primary' to='/membership'>Membership</NavLink>
         <NavLink className='text-base-100 hover:text-primary' to='/contactUs'>Contact Us</NavLink>
-
+        {
+            user &&
+            <NavLink className='text-base-100 hover:text-primary' to='/profile'>Dashboard</NavLink>
+        }
 
     </>
 
