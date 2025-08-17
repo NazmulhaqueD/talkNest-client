@@ -10,7 +10,7 @@ const PostList = () => {
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState('');
     const [tag, setTag] = useState('');
-    const limit = 5;
+    const limit = 6;
     const axiosSecure = UseAxiosSecure();
 
 

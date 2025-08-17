@@ -8,7 +8,7 @@ const ShowPostsContainer = ({ data, isLoading, limit, setPage, page }) => {
     const posts = data?.posts;
     const totalCount = data?.total;
     const totalPages = Math.ceil(totalCount / limit);
-    console.log(posts);
+    // console.log(posts);
 
     if (isLoading) return <Loader></Loader>;
     if (posts.length === 0) {
@@ -21,7 +21,8 @@ const ShowPostsContainer = ({ data, isLoading, limit, setPage, page }) => {
     }
 
     return (
-        <div className='max-w-7xl mx-auto bg-base-300 min-h-[55vh] rounded-lg my-8 p-4'>
+        <div className='bg-base-100'>
+            <div className='max-w-7xl mx-auto min-h-[55vh] rounded-lg my-8 p-4'>
             <div className="my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {posts?.map((post) => <PostCard
                     key={post._id}
@@ -42,6 +43,7 @@ const ShowPostsContainer = ({ data, isLoading, limit, setPage, page }) => {
                     </button>
                 ))}
             </div>
+        </div>
         </div>
     );
 };
