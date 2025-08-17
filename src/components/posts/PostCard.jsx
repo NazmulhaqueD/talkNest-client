@@ -36,7 +36,7 @@ const PostCard = ({ post }) => {
 
     return (
         <NavLink to={`/post/${post._id}`}>
-            <div className="bg-base-100 rounded-lg shadow-md p-4 space-y-3 hover:shadow-xl transition h-full flex flex-col">
+            <div className="bg-base-100 rounded-lg shadow-md p-4 space-y-3 hover:shadow-xl transition-all duration-300 hover:scale-105 h-full flex flex-col">
                 {/* Author Info */}
                 <div className="flex items-center gap-3">
                     <img referrerPolicy='no-referrer' src={authorImage} alt="author" className="w-10 h-10 rounded-full" />

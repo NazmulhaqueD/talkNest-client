@@ -18,7 +18,7 @@ const ShowAnnouncements = () => {
     return (
         <section className="p-4  max-w-7xl mx-auto rounded-xl mt-16">
             <h2 className="text-2xl lg:text-4xl text-primary text-center font-bold my-6">📢 Announcements</h2>
-            <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-6">
+            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-6">
                 {data.announcements.map((announcement) => (
                     <div key={announcement._id} className="bg-white p-4 rounded-lg shadow-sm hover:bg-base-200 hover:shadow-lg hover:scale-105 transition-all duration-300">
                         <div className="flex items-center gap-4 mb-2">
