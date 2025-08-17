@@ -21,7 +21,7 @@ const ShowPostsContainer = ({ data, isLoading, limit, setPage, page }) => {
     }
 
     return (
-        <div className='bg-base-100'>
+        <div className='bg-base-200'>
             <div className='max-w-7xl mx-auto min-h-[55vh] rounded-lg my-8 p-4'>
             <div className="my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {posts?.map((post) => <PostCard
