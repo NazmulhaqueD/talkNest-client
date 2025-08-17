@@ -11,6 +11,8 @@ const Navbar = () => {
     const links = <>
         <NavLink className='text-base-100 hover:text-primary' to='/'>home</NavLink>
         <NavLink className='text-base-100 hover:text-primary' to='/membership'>Membership</NavLink>
+        <NavLink className='text-base-100 hover:text-primary' to='/contactUs'>Contact Us</NavLink>
+
 
     </>
 

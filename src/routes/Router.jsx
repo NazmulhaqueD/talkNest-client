@@ -16,6 +16,7 @@ import ReportedComments from "../pages/dashboard/admin/ReportedComments";
 import MakeAnnouncement from "../pages/dashboard/admin/MakeAnnouncement";
 import ShowAnnouncements from "../components/announcement/ShowAnnouncemnet";
 import ErrorPage from "../pages/error/ErrorPage";
+import ContactUs from "../pages/ContactUs/ContactUs";
 
 export const router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
                 path: 'announcement',
                 element: <ShowAnnouncements></ShowAnnouncements>
             },
+            {
+                path: 'contactUs',
+                element: <ContactUs></ContactUs>
+            }
 
         ]
     },

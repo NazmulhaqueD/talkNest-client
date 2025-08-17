@@ -30,7 +30,7 @@ const TestimonialSection = () => {
                     {testimonials.map((testimonial, index) => (
                         <div
                             key={index}
-                            className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center"
+                            className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center hover:scale-105 transition duration-300 hover:bg-base-300"
                         >
                             <img
                                 src={testimonial.image}
